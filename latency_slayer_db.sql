@@ -12,16 +12,16 @@ CREATE TABLE contact (
 	id_contact INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(255),
     phone VARCHAR(16),
-    created_at TIMESTAMP,
-    updated_at TIMESTAMP);
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);
     
 CREATE TABLE company (
 	id_company INT PRIMARY KEY AUTO_INCREMENT,
     commercial_name VARCHAR(45),
     legal_name VARCHAR(100),
     registration_number VARCHAR(16),
-    created_at TIMESTAMP,
-    updated_at TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     fk_contact INT,
     fk_country INT);
     
@@ -35,8 +35,8 @@ CREATE TABLE employee (
     name VARCHAR(45),
     gender ENUM('male', 'female', 'other'),
     password TEXT,
-    created_at TIMESTAMP,
-    updated_at TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     fk_role INT,
     fk_contact INT,
     fk_company INT,
@@ -85,14 +85,14 @@ CREATE TABLE metric (
 CREATE TABLE alert (
 	fk_metric INT,
     current INT,
-    date_time TIMESTAMP,
+    date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_met_metric FOREIGN KEY (fk_metric)
     REFERENCES metric (id_metric));
 
 CREATE TABLE register (
 	fk_metric INT,
     current VARCHAR(45),
-    date_time TIMESTAMP,
+    date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_reg_metric FOREIGN KEY (fk_metric)
     REFERENCES metric (id_metric));
 
@@ -100,7 +100,7 @@ CREATE TABLE connection (
 	id_connection INT PRIMARY KEY AUTO_INCREMENT,
     ip VARCHAR(45),
     city VARCHAR(45),
-    date_time TIMESTAMP,
+    date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     fk_server INT,
     CONSTRAINT fk_se_server FOREIGN KEY (fk_server)
     REFERENCES server (id_server));
@@ -113,7 +113,7 @@ INSERT INTO country (name, country_code, mask_company_registration_number, mask_
 ('France', 'FR', '00 000 000 000', '{+33} 00 00 00 00');
 
 INSERT INTO contact (email, phone, created_at, updated_at) VALUES
-('john.doe@example.com', '+1-202-555-0123', '2025-01-01 08:30:00', '2025-04-03 09:00:00'),
+('john.doe@example.com', '+12025550123', '2025-01-01 08:30:00', '2025-04-03 09:00:00'),
 ('mary.jane@example.com', '+44-20-7946-0958', '2025-01-02 09:00:00', '2025-04-03 09:05:00'),
 ('alice.smith@example.com', '+49-30-1234567', '2025-01-03 10:15:00', '2025-04-03 09:10:00'),
 ('bob.johnson@example.com', '+33-1-70189900', '2025-01-04 11:20:00', '2025-04-03 09:20:00'),
@@ -403,31 +403,31 @@ INSERT INTO connection (ip, city, date_time, fk_server) VALUES
 ('192.168.0.3', 'New York', '2025-04-03 12:30:00', 3),
 ('192.168.0.4', 'Beijing', '2025-04-03 13:40:00', 4),
 ('192.168.0.5', 'Paris', '2025-04-03 14:50:00', 5),
-('192.168.1.1', 'São Paulo', '2025-04-03 15:00:00', 6),
-('192.168.1.2', 'Tokyo', '2025-04-03 16:10:00', 7),
-('192.168.1.3', 'Los Angeles', '2025-04-03 17:20:00', 8),
-('192.168.1.4', 'Shanghai', '2025-04-03 18:30:00', 9),
-('192.168.1.5', 'Lyon', '2025-04-03 19:40:00', 10),
-('192.168.2.1', 'Brasília', '2025-04-03 20:10:00', 11),
-('192.168.2.2', 'Osaka', '2025-04-03 21:20:00', 12),
-('192.168.2.3', 'Chicago', '2025-04-03 22:30:00', 13),
-('192.168.2.4', 'Guangzhou', '2025-04-03 23:40:00', 14),
-('192.168.2.5', 'Marseille', '2025-04-04 00:50:00', 15),
-('192.168.3.1', 'Rio de Janeiro', '2025-04-04 01:00:00', 16),
-('192.168.3.2', 'Kyoto', '2025-04-04 02:10:00', 17),
-('192.168.3.3', 'Houston', '2025-04-04 03:20:00', 18),
-('192.168.3.4', 'Shenzhen', '2025-04-04 04:30:00', 19),
-('192.168.3.5', 'Nice', '2025-04-04 05:40:00', 20),
-('192.168.4.1', 'Curitiba', '2025-04-04 06:10:00', 21),
-('192.168.4.2', 'Sapporo', '2025-04-04 07:20:00', 22),
-('192.168.4.3', 'San Francisco', '2025-04-04 08:30:00', 23),
-('192.168.4.4', 'Hangzhou', '2025-04-04 09:40:00', 24),
-('192.168.4.5', 'Bordeaux', '2025-04-04 10:50:00', 25),
-('192.168.5.1', 'Porto Alegre', '2025-04-04 11:00:00', 26),
-('192.168.5.2', 'Fukuoka', '2025-04-04 12:10:00', 27),
-('192.168.5.3', 'Dallas', '2025-04-04 13:20:00', 28),
-('192.168.5.4', 'Tianjin', '2025-04-04 14:30:00', 29),
-('192.168.5.5', 'Cannes', '2025-04-04 15:40:00', 30);
+('192.168.1.1', 'São Paulo', '2025-04-03 15:00:00', 1),
+('192.168.1.2', 'Tokyo', '2025-04-03 16:10:00', 2),
+('192.168.1.3', 'Los Angeles', '2025-04-03 17:20:00', 3),
+('192.168.1.4', 'Shanghai', '2025-04-03 18:30:00', 4),
+('192.168.1.5', 'Lyon', '2025-04-03 19:40:00', 5),
+('192.168.2.1', 'Brasília', '2025-04-03 20:10:00', 1),
+('192.168.2.2', 'Osaka', '2025-04-03 21:20:00', 2),
+('192.168.2.3', 'Chicago', '2025-04-03 22:30:00', 3),
+('192.168.2.4', 'Guangzhou', '2025-04-03 23:40:00', 4),
+('192.168.2.5', 'Marseille', '2025-04-04 00:50:00', 5),
+('192.168.3.1', 'Rio de Janeiro', '2025-04-04 01:00:00', 1),
+('192.168.3.2', 'Kyoto', '2025-04-04 02:10:00', 2),
+('192.168.3.3', 'Houston', '2025-04-04 03:20:00', 3),
+('192.168.3.4', 'Shenzhen', '2025-04-04 04:30:00', 4),
+('192.168.3.5', 'Nice', '2025-04-04 05:40:00', 5),
+('192.168.4.1', 'Curitiba', '2025-04-04 06:10:00', 1),
+('192.168.4.2', 'Sapporo', '2025-04-04 07:20:00', 2),
+('192.168.4.3', 'San Francisco', '2025-04-04 08:30:00', 3),
+('192.168.4.4', 'Hangzhou', '2025-04-04 09:40:00', 4),
+('192.168.4.5', 'Bordeaux', '2025-04-04 10:50:00', 5),
+('192.168.5.1', 'Porto Alegre', '2025-04-04 11:00:00', 1),
+('192.168.5.2', 'Fukuoka', '2025-04-04 12:10:00', 2),
+('192.168.5.3', 'Dallas', '2025-04-04 13:20:00', 3),
+('192.168.5.4', 'Tianjin', '2025-04-04 14:30:00', 4),
+('192.168.5.5', 'Cannes', '2025-04-04 15:40:00', 5);
 
 SELECT * FROM country;
 SELECT * FROM contact;
