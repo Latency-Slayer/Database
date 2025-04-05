@@ -6,7 +6,8 @@ CREATE TABLE country (
     name VARCHAR(45) NOT NULL,
 	country_code CHAR(2) NOT NULL,
     mask_company_registration_number VARCHAR(45) NOT NULL,
-    mask_phone VARCHAR(45) NOT NULL);
+    mask_phone VARCHAR(45) NOT NULL
+);
     
 CREATE TABLE contact (
 	id_contact INT PRIMARY KEY AUTO_INCREMENT,
