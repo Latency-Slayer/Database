@@ -75,7 +75,7 @@ CREATE TABLE server (
 CREATE TABLE component (
 	id_component INT PRIMARY KEY AUTO_INCREMENT,
     tag_name VARCHAR(45) NOT NULL,
-    type ENUM("cpu", "ram", "hd", "ssd", "swap") NOT NULL,
+    type ENUM('cpu', 'ram', 'storage', 'swap') NOT NULL,
     active TINYINT(1) NOT NULL DEFAULT 1,
     fk_server INT NOT NULL,
     CONSTRAINT fk_ser_server FOREIGN KEY (fk_server)
@@ -84,7 +84,7 @@ CREATE TABLE component (
 
 CREATE TABLE metric (
 	id_metric INT PRIMARY KEY AUTO_INCREMENT,
-    metric ENUM("GB", "MB", "KB", "Kbps", "Mbps", "%", "Mhz", "Ghz") NOT NULL,
+    metric ENUM('GB', 'MB', 'KB', 'Kbps', 'Mbps', '%', 'Mhz', 'Ghz') NOT NULL,
     max_limit INT NOT NULL,
     min_limit INT,
     total INT NOT NULL,
@@ -134,7 +134,7 @@ INSERT INTO company (commercial_name, legal_name, registration_number, fk_contac
 ('Ubsoft', 'Ubsoft Tecnologia LTDA', '00000000000000', 2, 1);
 
 INSERT INTO opt_role (name, description) VALUES
-('manager', "Full access to the entire company profile."),
+('manager', 'Full access to the entire company profile.'),
 ('suport', 'Real-time Dashboard Access'),
 ('Analyst', 'Access to Analytics Dashboard');
 
