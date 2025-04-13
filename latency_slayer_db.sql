@@ -84,7 +84,7 @@ CREATE TABLE component (
 
 CREATE TABLE metric (
 	id_metric INT PRIMARY KEY AUTO_INCREMENT,
-    metric ENUM('GB', 'MB', 'KB', 'Kbps', 'Mbps', '%', 'Mhz', 'Ghz') NOT NULL,
+    metric ENUM('GB', 'MB', 'KB', 'Kbps', 'Mbps', '%', 'Mhz', 'Ghz', 'celsius') NOT NULL,
     max_limit INT NOT NULL,
     min_limit INT,
     total INT NOT NULL,
