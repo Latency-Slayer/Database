@@ -64,6 +64,8 @@ CREATE TABLE server (
     active TINYINT(1) NOT NULL DEFAULT 1,
     so ENUM ('windows', 'linux', 'macos') NOT NULL,
     city VARCHAR(60) NOT NULL,
+    game VARCHAR(45) NOT NULL,
+    port INT NOT NULL,
     fk_company INT NOT NULL,
     fk_country INT NOT NULL,
     CONSTRAINT fk_compa_company FOREIGN KEY (fk_company)
