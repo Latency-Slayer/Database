@@ -76,7 +76,7 @@ CREATE TABLE server (
     
 CREATE TABLE component (
 	id_component INT PRIMARY KEY AUTO_INCREMENT,
-    tag_name VARCHAR(45) NOT NULL,
+    tag_name VARCHAR(150) NOT NULL,
     type ENUM('cpu', 'ram', 'storage', 'swap') NOT NULL,
     active TINYINT(1) NOT NULL DEFAULT 1,
     fk_server INT NOT NULL,
