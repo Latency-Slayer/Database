@@ -95,31 +95,6 @@ CREATE TABLE metric (
     REFERENCES component (id_component)
 );
 
-CREATE TABLE alert (
-	fk_metric INT NOT NULL,
-    current INT NOT NULL,
-    date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    CONSTRAINT fk_met_metric FOREIGN KEY (fk_metric)
-    REFERENCES metric (id_metric));
-
-CREATE TABLE register (
-	fk_metric INT NOT NULL,
-    current VARCHAR(45) NOT NULL,
-    date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    CONSTRAINT fk_reg_metric FOREIGN KEY (fk_metric)
-    REFERENCES metric (id_metric)
-);
-
-CREATE TABLE connection (
-	id_connection INT PRIMARY KEY AUTO_INCREMENT,
-    ip VARCHAR(45),
-    city VARCHAR(45),
-    date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    fk_server INT,
-    CONSTRAINT fk_se_server FOREIGN KEY (fk_server)
-    REFERENCES server (id_server)
-);
-
 INSERT INTO country (name, country_code, mask_company_registration_number, mask_phone) VALUES
 ('Brazil', 'BR', '00.000.000/0000-00', '{+55} (00) 00000-0000'),
 ('Japan', 'JP', '00-000-0000-000', '{+81} 000-0000-0000'),
