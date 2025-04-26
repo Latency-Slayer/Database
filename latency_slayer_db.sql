@@ -95,20 +95,36 @@ CREATE TABLE metric (
     REFERENCES component (id_component)
 );
 
+CREATE TABLE alert (
+id_Alert INT PRIMARY KEY AUTO_INCREMENT,
+status ENUM('aberto', 'acompanhamento', 'resolvido') NOT NULL,
+dateAlert TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+mensage VARCHAR(45) NOT NULL,
+exceeded_limit INT NOT NULL,
+fk_Metric INT NOT NULL,
+CONSTRAINT fk_alert_metric FOREIGN KEY (fk_Metric)
+REFERENCES metric (id_metric)
+);
+
 INSERT INTO country (name, country_code, mask_company_registration_number, mask_phone) VALUES
 ('Brazil', 'BR', '00.000.000/0000-00', '{+55} (00) 00000-0000'),
 ('Japan', 'JP', '00-000-0000-000', '{+81} 000-0000-0000'),
 ('United States', 'US', '00-00-0000000', '{+1} (000) 000-0000'),
 ('China', 'CN', '000-000000000', '{+86} (000) 0000-0000'),
-('France', 'FR', '00 000 000 000', '{+33} 00 00 00 00');
-
+('France', 'FR', '00 000 000 000', '{+33} 00 00 00 00'),
+('Sweden', 'SE', 'SE000000000001', '{+46} (0) 000 0000');
 
 INSERT INTO contact (email, phone) VALUES 
 ('bryangomesrocha@gmail.com', '11960976085'),
-('support@ubsoft.com', '11960971845');
+('support@ubsoft.com', '11960971845'),
+('roberta@mojang.com', '89876543'),
+('fernando@mojang.com', '84567891'),
+('ralph@mojang.com', '87891234'),
+('support@mojang.com', '81234567');
 
 INSERT INTO company (commercial_name, legal_name, registration_number, fk_contact, fk_country) VALUES
-('Ubsoft', 'Ubsoft Tecnologia LTDA', '00000000000000', 2, 1);
+('Ubsoft', 'Ubsoft Tecnologia LTDA', '00000000000000', 2, 1),
+('Mojang', 'Mojang Studios', 'SE000000000001', 6, 6);
 
 INSERT INTO opt_role (name, description) VALUES
 ('manager', 'Full access to the entire company profile.'),
@@ -116,7 +132,10 @@ INSERT INTO opt_role (name, description) VALUES
 ('Analyst', 'Access to Analytics Dashboard');
 
 INSERT INTO employee (name, gender, fk_company, fk_contact, fk_role, password) VALUES 
-('Bryan Rocha', 'Male', 1, 1, 1, '@Teste123');
+('Bryan Rocha', 'Male', 1, 1, 1, '@Teste123'),
+('Roberta', 'Female', 2, 3, 2, '@Roberta25'),
+('Fernando', 'Male', 2, 4, 3, '@Fernando30'),
+('Ralph', 'Male', 2, 5, 1, '@Roberta35');
 
 
 -- INSERT INTO contact (email, phone, created_at, updated_at) VALUES
