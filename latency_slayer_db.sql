@@ -127,9 +127,9 @@ INSERT INTO company (commercial_name, legal_name, registration_number, fk_contac
 ('Mojang', 'Mojang Studios', 'SE000000000001', 6, 6);
 
 INSERT INTO opt_role (name, description) VALUES
-('manager', 'Full access to the entire company profile.'),
-('suport', 'Real-time Dashboard Access'),
-('Analyst', 'Access to Analytics Dashboard');
+('Gerente', 'Full access to the entire company profile.'),
+('Analista de Suporte', 'Real-time Dashboard Access'),
+('Analista de Dados', 'Access to Analytics Dashboard');
 
 INSERT INTO employee (name, gender, fk_company, fk_contact, fk_role, password) VALUES 
 ('Bryan Rocha', 'Male', 1, 1, 1, '@Teste123'),
