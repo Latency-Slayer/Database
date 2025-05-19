@@ -122,7 +122,7 @@ INSERT INTO contact (email, phone) VALUES
 ('ralph@mojang.com', '87891234'),
 ('support@mojang.com', '81234567'),
 ('ana@mojang.com', '98123567');
-
+select * from contact;
 INSERT INTO company (commercial_name, legal_name, registration_number, fk_contact, fk_country) VALUES
 ('Ubsoft', 'Ubsoft Tecnologia LTDA', '00000000000000', 2, 1),
 ('Mojang', 'Mojang Studios', 'SE000000000001', 6, 6);
@@ -137,8 +137,10 @@ INSERT INTO employee (name, gender, fk_company, fk_contact, fk_role, password) V
 ('Bryan Rocha', 'Male', 1, 1, 1, '@Teste123'),
 ('Roberta', 'Female', 2, 3, 2, '@Roberta25'),
 ('Fernando', 'Male', 2, 4, 3, '@Fernando30'),
-('Ana', 'Female', 2, 4, 3, '@Ana123'),
+('Ana', 'Female', 2, 6, 4, '@Ana123'),
 ('Ralph', 'Male', 2, 5, 1, '@Roberta35');
+
+SELECT * FROM employee;
 
 -- INSERT INTO contact (email, phone, created_at, updated_at) VALUES
 -- ('john.doe@example.com', '+12025550123', '2025-01-01 08:30:00', '2025-04-03 09:00:00'),
