@@ -120,7 +120,8 @@ INSERT INTO contact (email, phone) VALUES
 ('roberta@mojang.com', '89876543'),
 ('fernando@mojang.com', '84567891'),
 ('ralph@mojang.com', '87891234'),
-('support@mojang.com', '81234567');
+('support@mojang.com', '81234567'),
+('ana@mojang.com', '98123567');
 
 INSERT INTO company (commercial_name, legal_name, registration_number, fk_contact, fk_country) VALUES
 ('Ubsoft', 'Ubsoft Tecnologia LTDA', '00000000000000', 2, 1),
@@ -129,12 +130,14 @@ INSERT INTO company (commercial_name, legal_name, registration_number, fk_contac
 INSERT INTO opt_role (name, description) VALUES
 ('Gerente', 'Full access to the entire company profile.'),
 ('Analista de Suporte', 'Real-time Dashboard Access'),
+('Analista de Atendimento', 'Real-time Jira Dashboard'),
 ('Analista de Dados', 'Access to Analytics Dashboard');
 
 INSERT INTO employee (name, gender, fk_company, fk_contact, fk_role, password) VALUES 
 ('Bryan Rocha', 'Male', 1, 1, 1, '@Teste123'),
 ('Roberta', 'Female', 2, 3, 2, '@Roberta25'),
 ('Fernando', 'Male', 2, 4, 3, '@Fernando30'),
+('Ana', 'Female', 2, 4, 3, '@Ana123'),
 ('Ralph', 'Male', 2, 5, 1, '@Roberta35');
 
 
