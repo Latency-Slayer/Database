@@ -99,9 +99,11 @@ CREATE TABLE alert (
 id_Alert INT PRIMARY KEY AUTO_INCREMENT,
 status ENUM('aberto', 'acompanhamento', 'resolvido') NOT NULL,
 dateAlert TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-mensage VARCHAR(45) NOT NULL,
+mensage VARCHAR(100) NOT NULL,
 exceeded_limit INT NOT NULL,
+valor DOUBLE NOT NULL,
 fk_Metric INT NOT NULL,
+nivel VARCHAR(30) NOT NULL,
 CONSTRAINT fk_alert_metric FOREIGN KEY (fk_Metric)
 REFERENCES metric (id_metric)
 );
@@ -129,25 +131,26 @@ INSERT INTO country (name, country_code, mask_company_registration_number, mask_
 ('Sweden', 'SE', 'SE000000000001', '{+46} (0) 000 0000');
 
 INSERT INTO contact (email, phone) VALUES 
-('roberta@ubisoft.com', '89876543'),
-('fernando@ubisoft.com', '84567891'),
-('ralph@ubisoft.com', '87891234'),
-('support@ubisoft.com', '81234567');
+('roberta@mojang.com', '89876543'),
+('fernando@mojang.com', '84567891'),
+('ralph@mojang.com', '87891234'),
+('ana@mojang.com', '98873123');
 
 INSERT INTO company (commercial_name, legal_name, registration_number, fk_contact, fk_country) VALUES
-('Ubsoft', 'Ubsoft Tecnologia LTDA', '03001068000183', 2, 1);
+('Ubsoft', 'Ubsoft Tecnologia LTDA', '00000000000000', 2, 1),
+('Mojang', 'Mojang Studios', 'SE000000000001', 6, 6);
 
 INSERT INTO opt_role (name, description) VALUES
 ('Gerente', 'Full access to the entire company profile.'),
 ('Analista de Suporte', 'Real-time Dashboard Access'),
-('Business Inteligence', 'Access to Analytics Dashboard');
+('Business Inteligence', 'Access to Analytics Dashboard'),
+('Suporte N3', 'Acess to Jira');
 
 INSERT INTO employee (name, gender, fk_company, fk_contact, fk_role, password) VALUES 
-('Roberta', 'Female', 1, 1, 2, '@Roberta25'),
-('Fernando', 'Male', 1, 2, 3, '@Fernando25'),
-('Ralph', 'Male', 1, 3, 1, '@Ralph25');
-
-
+('Roberta', 'Female', 2, 3, 2, '@Roberta25'),
+('Fernando', 'Male', 2, 4, 3, '@Fernando30'),
+('Ralph', 'Male', 2, 5, 1, '@Roberta35'),
+('Ana', 'Female',2,7,4,'@Ana123');
 
 SELECT COUNT(*) from connection_capturing;
 
