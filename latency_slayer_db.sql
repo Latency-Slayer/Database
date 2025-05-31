@@ -149,17 +149,29 @@ INSERT INTO employee (name, gender, fk_company, fk_contact, fk_role, password) V
 
 
 
-SELECT COUNT(*) from connection_capturing;
+-- SELECT COUNT(*) from connection_capturing;
 
-SELECT
-    DATE_FORMAT(date_time, '%Y-%m') AS mes,
-    ROUND(COUNT(*) / COUNT(DISTINCT day (date_time)), 0) AS media_por_dia
-FROM
-    connection_capturing
-GROUP BY
-    DATE_FORMAT(date_time, '%Y-%m')
-ORDER BY
-    mes; 
+-- SELECT
+--     DATE_FORMAT(date_time, '%Y-%m') AS mes,
+--     ROUND(COUNT(*) / COUNT(DISTINCT day (date_time)), 0) AS media_por_dia
+-- FROM
+--     connection_capturing
+-- GROUP BY
+--     DATE_FORMAT(date_time, '%Y-%m')
+-- ORDER BY
+--     mes; 
 
-TRUNCATE connection_capturing;
 
+
+-- SELECT
+--   DATE_FORMAT(date_time, '%Y-%m-%d %H:00:00') AS horario,
+--   COUNT(*) AS total_conexoes
+-- FROM
+--   connection_capturing
+-- JOIN server ON id_server = fk_server
+-- JOIN company ON id_company = fk_company
+-- WHERE
+--   company.registration_number = "03001068000183" AND (MONTH(connection_capturing.date_time) >= 2 AND MONTH(connection_capturing.date_time) <= 3)
+-- GROUP BY horario
+-- ORDER BY total_conexoes DESC
+-- LIMIT 1;
