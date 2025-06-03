@@ -229,11 +229,7 @@ VALUES (18, 'C:\\', 'storage', 1, 6);
 INSERT INTO latency_slayer.component (id_component, tag_name, type, active, fk_server)
 VALUES (19, 'E:\\', 'storage', 1, 6);
 INSERT INTO latency_slayer.component (id_component, tag_name, type, active, fk_server)
-VALUES (20, 'F:\\', 'storage', 1, 6);
-INSERT INTO latency_slayer.component (id_component, tag_name, type, active, fk_server)
 VALUES (21, 'D:\\', 'storage', 1, 6);
-INSERT INTO latency_slayer.component (id_component, tag_name, type, active, fk_server)
-VALUES (22, 'G:\\', 'storage', 1, 6);
 
 INSERT INTO latency_slayer.metric (id_metric, metric, max_limit, min_limit, total, fk_component)
 VALUES (1, '%', 90, 30, 100, 2);
@@ -304,8 +300,6 @@ VALUES (33, 'GB', 745, null, 932, 21);
 INSERT INTO latency_slayer.metric (id_metric, metric, max_limit, min_limit, total, fk_component)
 VALUES (34, '%', 80, null, 100, 18);
 INSERT INTO latency_slayer.metric (id_metric, metric, max_limit, min_limit, total, fk_component)
-VALUES (35, '%', 80, null, 100, 20);
-INSERT INTO latency_slayer.metric (id_metric, metric, max_limit, min_limit, total, fk_component)
 VALUES (36, 'GB', 819, null, 1024, 19);
 INSERT INTO latency_slayer.metric (id_metric, metric, max_limit, min_limit, total, fk_component)
 VALUES (37, 'celsius', 75, null, 0, 17);
@@ -314,15 +308,9 @@ VALUES (38, 'GB', 38, null, 48, 16);
 INSERT INTO latency_slayer.metric (id_metric, metric, max_limit, min_limit, total, fk_component)
 VALUES (39, '%', 80, null, 100, 19);
 INSERT INTO latency_slayer.metric (id_metric, metric, max_limit, min_limit, total, fk_component)
-VALUES (40, 'GB', 46, null, 58, 20);
-INSERT INTO latency_slayer.metric (id_metric, metric, max_limit, min_limit, total, fk_component)
 VALUES (41, 'GB', 357, null, 446, 18);
 INSERT INTO latency_slayer.metric (id_metric, metric, max_limit, min_limit, total, fk_component)
 VALUES (42, '%', 80, null, 100, 17);
-INSERT INTO latency_slayer.metric (id_metric, metric, max_limit, min_limit, total, fk_component)
-VALUES (43, '%', 80, null, 100, 22);
-INSERT INTO latency_slayer.metric (id_metric, metric, max_limit, min_limit, total, fk_component)
-VALUES (44, 'GB', 0, null, 0, 22);
 
 
 
@@ -376,7 +364,6 @@ VALUES ('resolvido', '2025-04-05 13:55:31', 'RAM usage exceeded maximum limit', 
 
 INSERT INTO alert (status, dateAlert, mensage, exceeded_limit, valor, fk_Metric, nivel)
 VALUES ('resolvido', '2025-04-12 12:47:28', 'CPU usage exceeded maximum limit', 80, 91.3, 23, 'critico'),
-       ('resolvido', '2025-04-12 16:59:14', 'RAM usage exceeded maximum limit', 80, 84.6, 35, 'alto'),
        ('resolvido', '2025-04-13 10:21:35', 'CPU usage exceeded maximum limit', 85, 88.2, 42, 'alto'),
        ('resolvido', '2025-04-13 18:44:51', 'RAM usage exceeded maximum limit', 75, 82.7, 29, 'alto'),
        ('resolvido', '2025-04-13 23:16:08', 'CPU usage exceeded maximum limit', 80, 86.9, 34, 'alto');
@@ -408,7 +395,6 @@ VALUES ('resolvido', '2025-05-03 12:29:51', 'RAM usage exceeded maximum limit', 
 
 INSERT INTO alert (status, dateAlert, mensage, exceeded_limit, valor, fk_Metric, nivel)
 VALUES ('resolvido', '2025-05-10 14:25:19', 'CPU usage exceeded maximum limit', 80, 92.8, 42, 'critico'),
-       ('resolvido', '2025-05-10 19:51:45', 'RAM usage exceeded maximum limit', 80, 86.7, 35, 'alto'),
        ('resolvido', '2025-05-11 11:12:33', 'CPU usage exceeded maximum limit', 80, 83.6, 34, 'alto'),
        ('resolvido', '2025-05-11 17:38:29', 'RAM usage exceeded maximum limit', 85, 91.2, 13, 'critico'),
        ('resolvido', '2025-05-11 23:04:56', 'CPU usage exceeded maximum limit', 75, 80.9, 25, 'alto');
