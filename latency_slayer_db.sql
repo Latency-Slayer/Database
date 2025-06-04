@@ -114,8 +114,8 @@ CREATE TABLE alert
     exceeded_limit INT                                            NOT NULL,
     valor          DOUBLE                                         NOT NULL,
     fk_Metric      INT                                            NOT NULL,
-    nivel          VARCHAR(30)                                    NOT NULL,
     idJira         INT,
+    nivel          VARCHAR(30)                                    NOT NULL,
     CONSTRAINT fk_alert_metric FOREIGN KEY (fk_Metric)
         REFERENCES metric (id_metric)
 );
@@ -417,10 +417,4 @@ VALUES ('resolvido', '2025-05-24 15:32:18', 'CPU usage exceeded maximum limit', 
        ('resolvido', '2025-05-31 14:55:27', 'CPU usage exceeded maximum limit', 85, 91.6, 14, 'critico');
 
 
-
-CREATE USER IF NOT EXISTS 'admin'@'%' IDENTIFIED BY '@Urubu100';
-
--- Concede todas as permissões em todos os bancos de dados
-GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
-
-FLUSH PRIVILEGES;
+select * from connection_capturing;
