@@ -115,6 +115,7 @@ CREATE TABLE alert
     valor          DOUBLE                                         NOT NULL,
     fk_Metric      INT                                            NOT NULL,
     nivel          VARCHAR(30)                                    NOT NULL,
+    idJira         INT                                            NOT NULL,
     CONSTRAINT fk_alert_metric FOREIGN KEY (fk_Metric)
         REFERENCES metric (id_metric)
 );
