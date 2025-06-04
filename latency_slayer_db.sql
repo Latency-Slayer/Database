@@ -414,3 +414,12 @@ VALUES ('resolvido', '2025-05-24 15:32:18', 'CPU usage exceeded maximum limit', 
        ('resolvido', '2025-05-25 12:44:31', 'CPU usage exceeded maximum limit', 80, 86.1, 19, 'alto'),
        ('resolvido', '2025-05-25 18:29:54', 'RAM usage exceeded maximum limit', 85, 89.8, 13, 'alto'),
        ('resolvido', '2025-05-31 14:55:27', 'CPU usage exceeded maximum limit', 85, 91.6, 14, 'critico');
+
+
+
+CREATE USER IF NOT EXISTS 'admin'@'%' IDENTIFIED BY '@Urubu100';
+
+-- Concede todas as permissões em todos os bancos de dados
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
