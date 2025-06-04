@@ -113,8 +113,9 @@ CREATE TABLE alert
     mensage        VARCHAR(100)                                   NOT NULL,
     exceeded_limit INT                                            NOT NULL,
     valor          DOUBLE                                         NOT NULL,
-    fk_Metric      INT                                            NOT NULL,
+    fk_Metric      INT                                            ,
     nivel          VARCHAR(30)                                    NOT NULL,
+    idJira INT,
     CONSTRAINT fk_alert_metric FOREIGN KEY (fk_Metric)
         REFERENCES metric (id_metric)
 );
